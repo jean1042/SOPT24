@@ -176,8 +176,9 @@ const server=http.createServer((req,res)=>{
                 else{
                     console.log("weg");
                     //서버가 나한테 준 응답 resData
-                    const resData=JSON.parse(body);
-                    console.log("resDataname : " +resData);
+                    const resData=JSON.parse(body).data;
+                    console.log("arrrr");
+                    console.log(resData);
                     data.resData=resData;
 
                     // const resultCSV=json2csv.parse({

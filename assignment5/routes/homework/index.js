@@ -5,16 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var newsRouter = require('./news');
-var imgsRouter = require('./news');
 
 var app = express();
 
 // view engine setup
-app.set('/news', newsRouter);
-app.use('/news',newsRouter);
-
-app.set('/news/thumbnail',imgsRouter);
-app.use('/news/thumbnail',imgsRouter);
+app.set('/homework/news', newsRouter);
+app.use('/homework/news',newsRouter);
 
 module.exports = app;
 

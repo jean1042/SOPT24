@@ -7,5 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.use('/homework/news', require('./homework/news'))
+
 
 module.exports = router;
+

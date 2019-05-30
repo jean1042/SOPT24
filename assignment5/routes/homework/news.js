@@ -9,11 +9,11 @@ var router = express.Router();
 const async = require('async');
 const moment=require('moment');
 
-const utils = require('../utils/utils');
-const statusCode = require('../utils/statusCode');
-const responseMessage = require('../utils/responseMessage');
-const db = require('../module/pool');
-const upload = require('../config/multer');
+const utils = require('../../utils/utils');
+const statusCode = require('../../utils/statusCode');
+const responseMessage = require('../../utils/responseMessage');
+const db = require('../../module/pool');
+const upload = require('../../config/multer');
 
 /*1. 게시물 등록*/
 router.post('/', upload.fields([{name:'imgs'},{name:'thumbnail'}]),async (req, res) => {
@@ -105,9 +105,10 @@ router.get('/',async (req, res) => {
 
 /*3. 특정 게시글 조회 */
 router.get('/:id',async (req, res) => {
-    const contentIdx = req.url.split('/')[1]; //id parsing
-    console.log('contentIdx');
-    console.log(contentIdx);
+    //const contentIdx = req.url.split('/')[1]; //id parsing
+    const contentIdx=req.params.id;
+    //console.log('contentIdx');
+    //console.log(contentIdx);
     const selectcontentQuery = 'SELECT title,contentImg,content,writetime FROM news,contents WHERE news.newsIdx=?';
     const selectcontentResult = await db.queryParam_Parse(selectcontentQuery,contentIdx);
 
